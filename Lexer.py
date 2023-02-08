@@ -68,13 +68,9 @@ class Lexer:
         return char in Delimiters
 
     def detect(self, text):  #Detect if text starts at the currect character.
-        if self.curChar == text[0]:
-            for i in range(len(text) - 1):
-                if not self.peek(i + 1) == text[i + 1]:
-                    return False
-        else:
+        if self.curChar != text[0]:
             return False
-        return True
+        return all(self.peek(i + 1) == text[i + 1] for i in range(len(text) - 1))
 
     def isNumber(self, char=None):  #Check if the character is a number
         char = char or self.curChar
