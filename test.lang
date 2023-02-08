@@ -1,0 +1,9 @@
+// A comment.
+func hello {
+  say "Nothing"
+}
+
+hello()
+while 2 < 5 {
+  do hello;do hello
+}
